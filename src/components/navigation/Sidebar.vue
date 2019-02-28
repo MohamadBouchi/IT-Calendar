@@ -1,6 +1,6 @@
 <template>
     <v-navigation-drawer v-model='drawer' app class="grey lighten-4">
-        <v-list>
+        <v-list class="pt-0">
             <v-list-group no-action prepend-icon="calendar_today">
 
                 <v-list-tile slot="activator">
@@ -42,3 +42,8 @@ export default {
     }
 }
 </script>
+
+
+<style lang="stylus" scoped>
+  
+</style>

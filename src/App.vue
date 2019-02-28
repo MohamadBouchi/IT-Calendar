@@ -2,9 +2,7 @@
   <v-app class="grey lighten-4">
     <Navbar/>
     <v-content>
-      <router-view>
-
-      </router-view>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
@@ -24,3 +22,9 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+  .v-content{
+    align-items: center
+  }
+</style>
