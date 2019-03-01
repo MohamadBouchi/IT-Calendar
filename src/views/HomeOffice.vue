@@ -4,10 +4,7 @@
       <v-flex>
         <DepartmentsSelectList/>
         <NewEntryPicker />
-        <div class="right">
-          <v-btn color="warning">Reset</v-btn>
-          <v-btn color="success">Submit</v-btn>
-        </div>
+        <ToolbarBtn />
       </v-flex>
     </v-layout>
     <v-layout>
@@ -20,13 +17,15 @@
 
 <script>
 
-import HomeOfficeCalendar from '@/components/homeOfficeCal/HomeOfficeCalendar';
-import NewEntryPicker from '@/components/homeOfficeCal/NewEntryPicker';
-import DepartmentsSelectList from '@/components/homeOfficeCal/DepartmentsSelectList';
+import HomeOfficeCalendar from '@/components/homeOfficeCal/HomeOfficeCalendar'
+import NewEntryPicker from '@/components/homeOfficeCal/NewEntryPicker'
+import DepartmentsSelectList from '@/components/homeOfficeCal/DepartmentsSelectList'
+import ToolbarBtn from '@/components/homeOfficeCal/ToolbarBtn'
 
 export default {
   components: {
     HomeOfficeCalendar,
+    ToolbarBtn,
     DepartmentsSelectList,
     NewEntryPicker
   },

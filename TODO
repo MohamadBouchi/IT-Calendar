@@ -1,7 +1,8 @@
 
 Todo:
-  ☐ install vuex
+  ✔ install vuex @done(19-03-01 11:23)
   ☐ create store
   ☐ create rest service
   ☐ get data from api
   ☐ next, prev buttons in calendar
+  ☐ login page

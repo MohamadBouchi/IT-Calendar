@@ -7,8 +7,14 @@
 
 <script>
 export default {
-    data: () => ({
-      departments: ['ALL', 'DWH', 'Support', 'WWS']
-    })
+    
+    created(){
+        this.$store.dispatch('getDepts')
+    },
+    computed: {
+        departments() {
+            return this.$store.state.departments
+        }
+    }
 }
 </script>
