@@ -1,6 +1,7 @@
 <template>
     <v-date-picker multiple full-width
- landscape v-model="dates"></v-date-picker>
+                   landscape v-model="dates"
+    ></v-date-picker>
 </template>
 
 <script>
