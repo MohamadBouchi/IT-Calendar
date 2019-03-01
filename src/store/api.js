@@ -1,7 +1,12 @@
+import VueResource from 'vue-resource'
+import Vue from 'vue'
+
+Vue.use(VueResource);
+
 const api = {
     getDepts() {
         return new Promise( (resolve) => {
-            fetch('https://apex.cc-west.de/ords/tasks/calendar/depts')
+            Vue.http.get('https://apex.cc-west.de/ords/tasks/calendar/depts')
             .then(response => {
                return response.json()
             })

@@ -2,6 +2,7 @@
     <v-select
         :items="departments"
         label="Department"
+        item-text="name"
     ></v-select>
 </template>
 
