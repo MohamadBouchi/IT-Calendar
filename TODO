@@ -1,8 +1,9 @@
 
 Todo:
   ✔ install vuex @done(19-03-01 11:23)
-  ☐ create store
-  ☐ create rest service
-  ☐ get data from api
+  ☐ create store @started(19-03-02 08:26)
+  ☐ create rest service @started(19-03-02 08:26)
+  ☐ get data from api @started(19-03-02 08:26)
   ☐ next, prev buttons in calendar
   ☐ login page
+  ☐ add dynamic min and max date to datepicker

@@ -3,13 +3,13 @@
     <v-layout class="mb-4">
       <v-flex>
         <DepartmentsSelectList/>
-        <NewEntryPicker />
+        <NewEntryPicker @clicked="onClickChild"/>
         <ToolbarBtn />
       </v-flex>
     </v-layout>
     <v-layout>
       <v-flex>
-        <HomeOfficeCalendar />
+        <HomeOfficeCalendar ref="test"/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -29,5 +29,10 @@ export default {
     DepartmentsSelectList,
     NewEntryPicker
   },
+  methods: {
+    onClickChild () {
+      this.$refs.test.$children[0].$children[0].next()
+    }
+  }
 }
 </script>

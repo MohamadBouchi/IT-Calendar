@@ -2,7 +2,9 @@
   <v-sheet height="500">
     <v-calendar
       :now="today"
+      type="month"
       :value="today"
+      v-model="start"
       color="primary"
     >
       <template
@@ -67,13 +69,20 @@
   export default {
     data: () => ({
       today: '2019-03-01',
+      start: '2019-03-01',
       events: [
         {
           title: 'Mohamed',
           details: 'Home Office',
-          date: '2019-03-02',
+          date: ['2019-03-02'],
           open: false
-        }
+        },
+        {
+          title: 'Mohamed',
+          details: 'Home Office',
+          date: '2019-03-05',
+          open: false
+        },
       ]
     }),
     computed: {
