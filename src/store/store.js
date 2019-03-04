@@ -4,6 +4,7 @@ import api from './api'
 
 const GET_DEPTS = 'GET_DEPTS'
 const SET_DATEPICKERDATES = 'SET_DATEPICKERDATES'
+const GET_HOMEOFFICE = 'GET_HOMEOFFICE';
 
 Vue.use(Vuex);
 
@@ -19,15 +20,22 @@ export const store = new Vuex.Store({
         },
         [SET_DATEPICKERDATES]: (state, payload) => {
             state.datepickerDates = payload
+        },
+        [GET_HOMEOFFICE]: (state, payload) => {
+            state.events = payload
         }
     },
     actions: {
-         getDepts: async ({ commit }) => {
-            const data = await api.getDepts()
-            commit(GET_DEPTS, data)
+        getDepts: async ({ commit }) => {
+            const payload = await api.getDepts()
+            commit(GET_DEPTS, payload)
         },
         setDatepickerDates: ({commit}, payload) => {
             commit(SET_DATEPICKERDATES, payload)
+        },
+        getHomeOffice: async ({commit}, id) => {
+            const payload = await api.getHomeOffice(id)
+            commit(GET_HOMEOFFICE, payload)
         }
     }
 })

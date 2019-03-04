@@ -6,6 +6,7 @@
       :value="today"
       v-model="start"
       color="primary"
+      class='mycalendar'
     >
       <template
         slot="day"
@@ -13,7 +14,7 @@
       >
         <template v-for="event in eventsMap[date]">
           <v-menu
-            :key="event.title"
+            :key="event.id"
             v-model="event.open"
             full-width
             offset-x
@@ -74,7 +75,19 @@
         {
           title: 'Mohamed',
           details: 'Home Office',
-          date: ['2019-03-02'],
+          date: '2019-03-02',
+          open: false
+        },
+        {
+          title: 'Mohamed2',
+          details: 'Home Office',
+          date: '2019-03-02',
+          open: false
+        },
+        {
+          title: 'Mohamed3',
+          details: 'Home Office',
+          date: '2019-03-02',
           open: false
         },
         {
@@ -85,11 +98,14 @@
         },
       ]
     }),
+    created(){
+        this.$store.dispatch('getHomeOffice', '21')
+    },
     computed: {
-      // convert the list of events into a map of lists keyed by date
       eventsMap () {
+        //this.events = this.$store.state.events
         const map = {}
-        this.events.forEach(e => (map[e.date] = map[e.date] || []).push(e))
+        this.$store.state.events.forEach(e => (map[e.datum] = map[e.datum] || []).push(e))
         return map
       }
     },
@@ -101,7 +117,7 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   .my-event {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -115,5 +131,8 @@
     padding: 3px;
     cursor: pointer;
     margin-bottom: 1px;
+  };
+  .mycalendar .v-calendar-weekly__week {
+    flex: 1 1 auto !important;
   }
 </style>

@@ -11,7 +11,23 @@ const api = {
                return response.json()
             })
             .then(data => {
-                resolve(data.items)
+               resolve(data.items)
+            })
+        });
+    },
+
+    getHomeOffice(id) {
+        return new Promise( (resolve) => {
+            Vue.http.get('https://apex.cc-west.de/ords/tasks/calendar/homeofficecal', {
+                headers: {
+                    id: `${id}`
+                }
+            })
+            .then(response => {
+               return response.json()
+            })
+            .then(data => {
+               resolve(data.items)
             })
         });
     }
