@@ -24,6 +24,7 @@
               slot="activator"
               v-ripple
               class="my-event"
+              :style="event.details==='DWH' ? {background:'#388E3C'}:event.details==='WWS'?{background:'#1867c0'}:{background:'#E65100'}"
               v-html="event.title"
             ></div>
             <v-card
@@ -70,42 +71,18 @@
   export default {
     data: () => ({
       today: '2019-03-01',
-      start: '2019-03-01',
-      events: [
-        {
-          title: 'Mohamed',
-          details: 'Home Office',
-          date: '2019-03-02',
-          open: false
-        },
-        {
-          title: 'Mohamed2',
-          details: 'Home Office',
-          date: '2019-03-02',
-          open: false
-        },
-        {
-          title: 'Mohamed3',
-          details: 'Home Office',
-          date: '2019-03-02',
-          open: false
-        },
-        {
-          title: 'Mohamed',
-          details: 'Home Office',
-          date: '2019-03-05',
-          open: false
-        },
-      ]
+      start: '2019-03-01'
     }),
     created(){
         this.$store.dispatch('getHomeOffice', '21')
     },
     computed: {
       eventsMap () {
-        //this.events = this.$store.state.events
         const map = {}
-        this.$store.state.events.forEach(e => (map[e.datum] = map[e.datum] || []).push(e))
+        this.$store.state.events.forEach(e => {
+          e.open = false
+          return (map[e.date] = map[e.date] || []).push(e)
+        });
         return map
       }
     },
@@ -123,9 +100,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     border-radius: 2px;
-    background-color: #1867c0;
     color: #ffffff;
-    border: 1px solid #1867c0;
+    border: 1px solid;
     width: 100%;
     font-size: 12px;
     padding: 3px;

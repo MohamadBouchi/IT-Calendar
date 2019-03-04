@@ -5,6 +5,8 @@
                    v-model="dates"
                    :reactive="true"
                    type="date"
+                   :events="arrayEvents"
+                    event-color="red lighten-1"
                    @input="setDatepickerDates"
     ></v-date-picker>
     <!-- <v-date-picker multiple full-width
@@ -22,8 +24,17 @@
 export default {
   data: () => ({
     dates: [],
+    arrayEvents: null,
     pickerDate: null
   }),
+  mounted () {
+    this.arrayEvents = [...Array(6)].map(() => {
+      const day = Math.floor(Math.random() * 30)
+      const d = new Date()
+      d.setDate(day)
+      return d.toISOString().substr(0, 10)
+    })
+  },
   computed: {
     datepickerDates() {
       return this.$store.state.datepickerDates
