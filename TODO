@@ -11,3 +11,4 @@ Todo:
   ☐ saturday and sundy unselectable
   ☐ show only team homeoffice dates on the datepicker
   ☐ show the team partner in details
+  ☐ add validation if the user is not from the selected department then he can not add an entry

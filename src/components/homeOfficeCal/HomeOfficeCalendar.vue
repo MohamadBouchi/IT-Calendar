@@ -24,7 +24,7 @@
               slot="activator"
               v-ripple
               class="my-event"
-              :style="event.details==='DWH' ? {background:'#388E3C'}:event.details==='WWS'?{background:'#1867c0'}:{background:'#E65100'}"
+              :style="event.details==='DWH' ? {background:'#388E3C'}:event.details==='WWS'?{background:'#1867c0'}:{background:'#FF9800'}"
               v-html="event.title"
             ></div>
             <v-card
@@ -33,7 +33,7 @@
               flat
             >
               <v-toolbar
-                color="primary"
+                :color="event.details==='DWH' ? 'success':event.details==='WWS'?'primary':'warning'"
                 dark
               >
                 <v-btn icon>
