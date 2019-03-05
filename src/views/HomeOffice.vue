@@ -1,18 +1,13 @@
-<template>
-  <v-container>
-    <v-layout class="mb-4">
-      <v-flex>
-        <DepartmentsSelectList/>
-        <NewEntryPicker @clicked="onClickChild"/>
-        <ToolbarBtn />
-      </v-flex>
-    </v-layout>
-    <v-layout>
-      <v-flex>
-        <HomeOfficeCalendar ref="test"/>
-      </v-flex>
-    </v-layout>
-  </v-container>
+<template lang="pug">
+  v-container
+    v-layout.mb-4
+      v-flex
+        DepartmentsSelectList
+        NewEntryPicker(@clicked="onClickChild")
+        ToolbarBtn
+    v-layout
+      v-flex
+        HomeOfficeCalendar(ref="test")
 </template>
 
 <script>
