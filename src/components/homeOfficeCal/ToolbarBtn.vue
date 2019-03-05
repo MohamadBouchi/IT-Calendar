@@ -1,8 +1,7 @@
-<template>
-    <div class="right">
-        <v-btn color="warning">Reset</v-btn>
-        <v-btn color="success" @click="submit">Submit</v-btn>
-    </div>
+<template lang="pug">
+    .right
+        v-btn(color="warning") reset
+        v-btn(color="success", @click="submit") submit
 </template>
 
 <script>

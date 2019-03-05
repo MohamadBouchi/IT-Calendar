@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomeOffice from './views/HomeOffice.vue'
-import Vacation from './views/Vacation.vue'
+import HomeOffice from '../views/HomeOffice.vue'
+import Vacation from '../views/Vacation.vue'
 Vue.use(Router)
 
 export default new Router({
