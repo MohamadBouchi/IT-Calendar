@@ -1,6 +1,6 @@
 <template>
     <v-select
-        :items='departments'
+        :items='getDepts'
         label='Department'
         item-text='name'
         item-value='id'
@@ -10,21 +10,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     data: () => ({
         selected:21
     }),
     created(){
-        this.$store.dispatch('getDepts')
+        this.$store.dispatch('departments/getDepts')
     },
     computed: {
-        departments() {
-            return this.$store.state.departments
-        }
+        ...mapGetters('departments',['getDepts'])
     },
     methods: {
         selectDept(id){
-            this.$store.dispatch('getHomeOffice', id)
+            this.$store.dispatch('homeoffice/getHomeOffice', id)
         }
     }
 }

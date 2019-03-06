@@ -7,8 +7,10 @@ Todo:
   ☐ next, prev buttons in calendar
   ☐ login page
   ☐ add dynamic min and max date to datepicker
-  ☐ add team id column to the database
+  ✔ add team id column to the database @done(19-03-06 08:09)
   ☐ saturday and sundy unselectable
-  ☐ show only team homeoffice dates on the datepicker
+  ✔ show only team homeoffice dates on the datepicker @done(19-03-06 08:09)
   ☐ show the team partner in details
   ☐ add validation if the user is not from the selected department then he can not add an entry
+  ☐ use modules and services in vuex @started(19-03-06 08:09)
+  ☐ uninstall vue-resource

@@ -40,7 +40,7 @@ export default {
   },
   methods:{
     setDatepickerDates(){
-      this.$store.dispatch('setDatepickerDates', this.dates)
+      this.$store.dispatch('homeoffice/setDatepickerDates', this.dates)
     }
   },
   // watch: {

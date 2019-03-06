@@ -8,7 +8,7 @@
 export default {
     methods: {
         submit() {
-            this.$store.dispatch('submitHomeOffice')
+            this.$store.dispatch('homeoffice/submitHomeOffice')
         }
     }
 }

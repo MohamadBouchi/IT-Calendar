@@ -68,18 +68,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
   export default {
     data: () => ({
       today: '2019-03-01',
       start: '2019-03-01'
     }),
     created(){
-        this.$store.dispatch('getHomeOffice', '21')
+        this.$store.dispatch('homeoffice/getHomeOffice', '21')
     },
     computed: {
+      ...mapGetters('homeoffice',['getEvents']),
       eventsMap () {
         const map = {}
-        this.$store.state.events.forEach(e => {
+        this.getEvents.forEach(e => {
           e.open = false
           return (map[e.date] = map[e.date] || []).push(e)
         });
