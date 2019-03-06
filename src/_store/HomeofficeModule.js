@@ -3,6 +3,7 @@ import { homeofficeService } from '../_services/HomeofficeService'
 
 const GET_HOMEOFFICE = 'GET_HOMEOFFICE'
 const SET_SELECTEDDATES = 'SET_SELECTEDDATES'
+const CANCEL_EVENT = 'CANCEL_EVENT'
 
 const state = {
     selectedDates: [],
@@ -15,6 +16,9 @@ const mutations = {
     },
     [SET_SELECTEDDATES]: (state, payload) => {
         state.selectedDates = payload
+    },
+    [CANCEL_EVENT]: (state, payload) => {
+        state.homeofficeDates = state.homeofficeDates.filter(e => e.id!== payload)
     }
 }
 
@@ -31,11 +35,21 @@ const actions = {
     setSelectedDates: ({commit}, payload) => {
         commit(SET_SELECTEDDATES, payload)
     },
+    cancelEvent: async ({commit}, id) => {
+        const payload = await homeofficeService.cancelEvent(id)
+        if(payload==='Deleted')
+            commit(CANCEL_EVENT, id)
+    }
 }
 
 const getters = {
     getHomeofficeDates : (state) => {
-        return state.homeofficeDates
+        const map = {}
+        state.homeofficeDates.forEach(e => {
+            e.open = false
+            return (map[e.date] = map[e.date] || []).push(e)
+        });
+        return map
     }
 }
 

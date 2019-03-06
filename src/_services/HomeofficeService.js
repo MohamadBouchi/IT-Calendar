@@ -1,7 +1,8 @@
 
 export const homeofficeService = {
     getHomeOffice,
-    submitHomeOffice
+    submitHomeOffice,
+    cancelEvent
 }
 
 function getHomeOffice(id) {
@@ -16,6 +17,22 @@ function getHomeOffice(id) {
         })
         .then(data => {
            resolve(data.items)
+        })
+    });
+}
+
+
+function cancelEvent(id) {
+    return new Promise( (resolve) => {
+        fetch('https://apex.cc-west.de/ords/tasks/calendar/homeofficecal', {
+            method: 'DELETE',
+            headers: {
+                'id': `${id}`
+            }
+        })
+        .then(response => {
+            if(response.status === 200)
+                resolve('Deleted')
         })
     });
 }

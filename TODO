@@ -4,17 +4,20 @@ Todo:
   ✔ create store @done(19-03-04 08:17)
   ✔ create rest service @done(19-03-04 08:17)
   ✔ get data from api @started(19-03-02 08:26) @done(19-03-04 08:17) @lasted(1d23h51m55s)
+  ✔ add team id column to the database @done(19-03-06 08:09)
+  ✔ show only team homeoffice dates on the datepicker @done(19-03-06 08:09)
+  ✔ use modules and services in vuex @started(19-03-06 08:09) @done(19-03-06 11:04) @lasted(2h55m46s)
+  ✔ uninstall vue-resource @done(19-03-06 13:26)
+  ✔ cancel event @done(19-03-06 13:56)
+  ☐ get events and dates for the current month
   ☐ next, prev buttons in calendar
   ☐ login page @high 
   ☐ add dynamic min and max date to datepicker
-  ✔ add team id column to the database @done(19-03-06 08:09)
   ☐ saturday and sundy unselectable
-  ✔ show only team homeoffice dates on the datepicker @done(19-03-06 08:09)
   ☐ show the team partner in details @low 
   ☐ add validation if the user is not from the selected department then he can not add an entry @low 
-  ✔ use modules and services in vuex @started(19-03-06 08:09) @done(19-03-06 11:04) @lasted(2h55m46s)
-  ☐ uninstall vue-resource
   ☐ SSO
+  ☐ cancel event if emp_id = user_id
 
 FIXME:
   ✔ add team id when insert into homeoffice @critical @done(19-03-06 12:23)

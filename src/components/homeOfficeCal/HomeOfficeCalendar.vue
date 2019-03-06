@@ -51,12 +51,14 @@
               <v-card-title primary-title>
                 <span v-html="event.details"></span>
               </v-card-title>
-              <v-card-actions>
+              <v-card-actions v-if="event.emp_id===22">
+                <v-spacer></v-spacer>
                 <v-btn
                   flat
                   color="secondary"
+                  @click="cancelEvent(event.id)"
                 >
-                  Cancel
+                  Delete
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -68,7 +70,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
   export default {
     data: () => ({
       today: '2019-03-01',
@@ -80,16 +82,12 @@ import { mapGetters } from 'vuex'
     computed: {
       ...mapGetters('homeoffice',['getHomeofficeDates']),
       eventsMap () {
-        const map = {}
-        this.getHomeofficeDates.forEach(e => {
-          e.open = false
-          return (map[e.date] = map[e.date] || []).push(e)
-        });
-        return map
+        return this.getHomeofficeDates
       }
 
     },
     methods: {
+      ...mapActions('homeoffice',['cancelEvent']),
       open (event) {
         alert(event.title)
       }
