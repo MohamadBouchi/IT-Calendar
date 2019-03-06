@@ -7,7 +7,7 @@
                    type="date"
                    :events="teamEvents"
                     event-color="red lighten-1"
-                   @input="setDatepickerDates"
+                   @input="setSelectedDates"
     ></v-date-picker>
     <!-- <v-date-picker multiple full-width
                    landscape v-model="dates"
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data: () => ({
     dates: [],
@@ -28,19 +30,20 @@ export default {
     pickerDate: null
   }),
   created() {
-    this.$store.dispatch('getTeamEvents')
+    this.$store.dispatch('teamEvent/getTeamEvents')
   },
   computed: {
-    datepickerDates() {
-      return this.$store.state.datepickerDates
-    },
+    ...mapGetters('teamEvent',['getTeamEvents']),
+    // datepickerDates() {
+    //   return this.$store.state.selectedDates
+    // },
     teamEvents() {
-      return this.$store.state.teamEvents
+      return this.getTeamEvents
     }
   },
   methods:{
-    setDatepickerDates(){
-      this.$store.dispatch('homeoffice/setDatepickerDates', this.dates)
+    setSelectedDates(){
+      this.$store.dispatch('homeoffice/setSelectedDates', this.dates)
     }
   },
   // watch: {

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 
 export const homeofficeService = {
     getHomeOffice,
@@ -7,7 +6,7 @@ export const homeofficeService = {
 
 function getHomeOffice(id) {
     return new Promise( (resolve) => {
-        Vue.http.get('https://apex.cc-west.de/ords/tasks/calendar/homeofficecal', {
+        fetch('https://apex.cc-west.de/ords/tasks/calendar/homeofficecal', {
             headers: {
                 id: `${id}`
             }
@@ -21,8 +20,8 @@ function getHomeOffice(id) {
     });
 }
 
-function submitHomeOffice(data) {
-    data = data.map(e => {
+function submitHomeOffice(dates) {
+    dates= dates.map(e => {
         return e.replace(/-/g,'')
     });
     return new Promise( (resolve) => {
@@ -30,7 +29,10 @@ function submitHomeOffice(data) {
             method:'POST',
             headers: {
                 'Accept': 'application/json',
-                'data': `${data}`
+                'dates': `${dates}`,
+                'emp_id': 22,
+                'dept_id': 3,
+                'team_id': 2
             }
         })
         .then(response => {

@@ -78,15 +78,16 @@ import { mapGetters } from 'vuex'
         this.$store.dispatch('homeoffice/getHomeOffice', '21')
     },
     computed: {
-      ...mapGetters('homeoffice',['getEvents']),
+      ...mapGetters('homeoffice',['getHomeofficeDates']),
       eventsMap () {
         const map = {}
-        this.getEvents.forEach(e => {
+        this.getHomeofficeDates.forEach(e => {
           e.open = false
           return (map[e.date] = map[e.date] || []).push(e)
         });
         return map
       }
+
     },
     methods: {
       open (event) {

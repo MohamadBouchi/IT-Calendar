@@ -3,7 +3,7 @@
     v-layout.mb-4
       v-flex
         DepartmentsSelectList
-        NewEntryPicker(@clicked="onClickChild")
+        DatePicker(@clicked="onClickChild")
         ToolbarBtn
     v-layout
       v-flex
@@ -13,7 +13,7 @@
 <script>
 
 import HomeOfficeCalendar from '@/components/homeOfficeCal/HomeOfficeCalendar'
-import NewEntryPicker from '@/components/homeOfficeCal/NewEntryPicker'
+import DatePicker from '@/components/homeOfficeCal/DatePicker'
 import DepartmentsSelectList from '@/components/homeOfficeCal/DepartmentsSelectList'
 import ToolbarBtn from '@/components/homeOfficeCal/ToolbarBtn'
 
@@ -22,7 +22,7 @@ export default {
     HomeOfficeCalendar,
     ToolbarBtn,
     DepartmentsSelectList,
-    NewEntryPicker
+    DatePicker
   },
   methods: {
     onClickChild () {
