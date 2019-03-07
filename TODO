@@ -14,6 +14,8 @@ Todo:
   ✔ show side bar only if logged in @done(19-03-07 09:47)
   ✔ cancel event if emp_id = user_id @done(19-03-07 10:34)
   ✔ map state to login page @done(19-03-07 10:34)
+  ✔ get team events for the current user @started(19-03-07 10:40) @done(19-03-07 10:44) @lasted(4m1s)
+  ✔ change favicon @done(19-03-07 11:23)
   ☐ get events and dates for the current month
   ☐ next, prev buttons in calendar
   ☐ add dynamic min and max date to datepicker
@@ -21,7 +23,7 @@ Todo:
   ☐ show the team partner in details @low 
   ☐ add validation if the user is not from the selected department then he can not add an entry @low 
   ☐ SSO
-  ☐ save credential in cookies 
+  ☐ save credential in cookies @critical 
 
 FIXME:
   ✔ add team id when insert into homeoffice @critical @done(19-03-06 12:23)

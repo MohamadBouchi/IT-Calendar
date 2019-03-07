@@ -14,12 +14,15 @@ const mutations = {
 }
 
 const actions = {
-    getTeamEvents: async ({ commit }) => {
-        let payload = await teamEventService.getTeamEvents()
+    getTeamEvents: async (context) => {
+        const team_id = context.rootState.auth.team_id
+        const emp_id = context.rootState.auth.id
+        
+        let payload = await teamEventService.getTeamEvents(team_id, emp_id)
         payload = payload.map(function(item) {
             return item['datum'];
         });
-        commit(GET_TEAM_EVENTS, payload)
+        context.commit(GET_TEAM_EVENTS, payload)
     }
 }
 

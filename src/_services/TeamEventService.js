@@ -3,14 +3,14 @@ export const teamEventService = {
 }
 
 
-function getTeamEvents() {
+function getTeamEvents(team_id, emp_id) {
     return new Promise( (resolve) => {
         fetch('https://apex.cc-west.de/ords/tasks/calendar/datepicker', {
             method:'GET',
             headers: {
                 'Accept': 'application/json',
-                'team_id': 2,
-                'emp_id': 21
+                'team_id': team_id,
+                'emp_id': emp_id
             }
         })
         .then(response => {
