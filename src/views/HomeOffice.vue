@@ -3,11 +3,11 @@
     v-layout.mb-4
       v-flex
         DepartmentsSelectList
-        DatePicker(@clicked="onClickChild")
-        ToolbarBtn
+        DatePicker(ref="datePicker")
+        ToolbarBtn(@resetDatePicker="resetDatePicker")
     v-layout
       v-flex
-        HomeOfficeCalendar(ref="test")
+        HomeOfficeCalendar
 </template>
 
 <script>
@@ -25,8 +25,9 @@ export default {
     DatePicker
   },
   methods: {
-    onClickChild () {
-      this.$refs.test.$children[0].$children[0].next()
+    resetDatePicker () {
+      // this.$refs.datePicker.$children[0].$children[0].next()
+      this.$refs.datePicker.dates = []
     }
   }
 }

@@ -1,9 +1,8 @@
 <template>
   <v-sheet height="500">
     <v-calendar
-      :now="today"
+      today
       type="month"
-      :value="today"
       v-model="start"
       color="primary"
       class='mycalendar'
@@ -73,7 +72,6 @@
 import { mapGetters, mapActions } from 'vuex'
   export default {
     data: () => ({
-      today: '2019-03-01',
       start: '2019-03-01'
     }),
     created(){

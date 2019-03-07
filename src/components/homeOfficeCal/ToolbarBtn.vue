@@ -11,6 +11,7 @@ export default {
             this.$store.dispatch('homeoffice/submit')
         },
         resetAll() {
+            this.$emit('resetDatePicker')
             this.$store.dispatch('homeoffice/resetAll')
         }
     }

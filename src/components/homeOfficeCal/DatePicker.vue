@@ -27,17 +27,13 @@ import { mapGetters } from 'vuex'
 export default {
   data: () => ({
     dates: [],
-    arrayEvents: null,
-    pickerDate: null,
+    arrayEvents: null
   }),
   created() {
     this.$store.dispatch('teamEvent/getTeamEvents')
   },
   computed: {
     ...mapGetters('teamEvent',['getTeamEvents']),
-    // datepickerDates() {
-    //   return this.$store.state.selectedDates
-    // },
     teamEvents() {
       return this.getTeamEvents
     }
@@ -47,13 +43,8 @@ export default {
       this.$store.dispatch('homeoffice/setSelectedDates', this.dates)
     },
     allowedDates(val) {
-      return ![0, 6].includes(new Date(val).getDay()) && !this.getTeamEvents.includes(val)
+        return ![0, 6].includes(new Date(val).getDay()) && !this.getTeamEvents.includes(val)
       }
-  },
-  // watch: {
-  //   pickerDate () {
-  //     this.$emit('clicked')
-  //   }
-  // }
+  }
 }
 </script>
