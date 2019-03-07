@@ -4,10 +4,10 @@ import router from '../_helpers/router';
 const LOGIN = 'LOGIN'
 
 const state = {
-    uname: 'none',
-    id:0,
-    dept_id:0,
-    team_id:0
+    uname: localStorage.getItem('user') ? localStorage.getItem('user'):'none',
+    id: localStorage.getItem('id'),
+    dept_id: localStorage.getItem('dept_id'),
+    team_id: localStorage.getItem('team_id')
 }
 
 const mutations = {
@@ -23,7 +23,10 @@ const actions = {
     login: async ({ commit }, data) => {
         const payload = await authService.login(data.uname, data.password)
         if(payload.length !== 0){
-            localStorage.setItem('user', data.uname)
+            localStorage.setItem('user', payload[0].uname)
+            localStorage.setItem('dept_id', payload[0].dept_id)
+            localStorage.setItem('id', payload[0].id)
+            localStorage.setItem('team_id', payload[0].team_id)
             router.push('/')
             commit(LOGIN, payload[0])
         }
