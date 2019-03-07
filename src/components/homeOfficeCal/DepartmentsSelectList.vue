@@ -22,8 +22,8 @@ export default {
         ...mapGetters('departments',['getDepts'])
     },
     methods: {
-        selectDept(id){
-            this.$store.dispatch('homeoffice/getHomeOffice', id)
+        selectDept(dept_id){
+            this.$store.dispatch('homeoffice/getHomeOffice', dept_id)
         }
     }
 }

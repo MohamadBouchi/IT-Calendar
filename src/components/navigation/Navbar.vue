@@ -1,23 +1,24 @@
 <template>
     <nav>
         <v-toolbar flat app dark>
-            <v-toolbar-side-icon class="grey--text" @click="drawer=!drawer"></v-toolbar-side-icon>
+            <v-toolbar-side-icon class="grey--text" @click="drawer=!drawer" v-if='user.uname!=="none"'></v-toolbar-side-icon>
             <v-toolbar-title class="text-uppercase grey--text">
                 <span class="font-weight-light">EDV </span>
                 <span> Calendar</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn flat color='grey'>
+            <v-btn flat color='grey' v-if='user.uname!=="none"'>
                 <span>Sign Out</span>
                 <v-icon>exit_to_app</v-icon>
             </v-btn>
         </v-toolbar>
-        <Sidebar :drawer='drawer' />
+        <Sidebar :drawer='drawer' v-if='user.uname!=="none"'/>
     </nav>
 </template>
 
 <script>
 import Sidebar from './Sidebar';
+import { mapState } from 'vuex';
 
 export default {
     components: {
@@ -27,6 +28,9 @@ export default {
         return {
             drawer: false
         }
-    }
+    },
+    computed: {
+        ...mapState({user: state => state.auth})        
+    },
 }
 </script>

@@ -23,14 +23,17 @@ const mutations = {
 }
 
 const actions = {
-    getHomeOffice: async ({commit}, id) => {
-        const payload = await homeofficeService.getHomeOffice(id)
+    getHomeOffice: async ({commit}, dept_id) => {
+        const payload = await homeofficeService.getHomeOffice(dept_id)
         commit(GET_HOMEOFFICE, payload)
     },
-    submitHomeOffice: async ({commit, state, dispatch}) => {
-        const payload = await homeofficeService.submitHomeOffice(state.selectedDates)
-        commit(GET_HOMEOFFICE, payload)
-        dispatch('teamEvent/getTeamEvents', null, {root:true})
+    submitHomeOffice: async (context) => {
+        const emp_id = context.rootState.auth.id
+        const team_id = context.rootState.auth.team_id
+        const dept_id = context.rootState.auth.dept_id
+        const payload = await homeofficeService.submitHomeOffice(context.state.selectedDates, emp_id, dept_id, team_id)
+        context.commit(GET_HOMEOFFICE, payload)
+        context.dispatch('teamEvent/getTeamEvents', null, {root:true})
     },
     setSelectedDates: ({commit}, payload) => {
         commit(SET_SELECTEDDATES, payload)

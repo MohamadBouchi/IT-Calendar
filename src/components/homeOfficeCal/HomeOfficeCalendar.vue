@@ -51,7 +51,7 @@
               <v-card-title primary-title>
                 <span v-html="event.details"></span>
               </v-card-title>
-              <v-card-actions v-if="event.emp_id===22">
+              <v-card-actions v-if="event.emp_id===getUser.id">
                 <v-spacer></v-spacer>
                 <v-btn
                   flat
@@ -81,6 +81,7 @@ import { mapGetters, mapActions } from 'vuex'
     },
     computed: {
       ...mapGetters('homeoffice',['getHomeofficeDates']),
+      ...mapGetters('auth',['getUser']),
       eventsMap () {
         return this.getHomeofficeDates
       }

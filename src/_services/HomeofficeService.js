@@ -5,11 +5,11 @@ export const homeofficeService = {
     cancelEvent
 }
 
-function getHomeOffice(id) {
+function getHomeOffice(dept_id) {
     return new Promise( (resolve) => {
         fetch('https://apex.cc-west.de/ords/tasks/calendar/homeofficecal', {
             headers: {
-                id: `${id}`
+                dept_id: `${dept_id}`
             }
         })
         .then(response => {
@@ -37,7 +37,7 @@ function cancelEvent(id) {
     });
 }
 
-function submitHomeOffice(dates) {
+function submitHomeOffice(dates, emp_id, dept_id, team_id) {
     dates= dates.map(e => {
         return e.replace(/-/g,'')
     });
@@ -47,9 +47,9 @@ function submitHomeOffice(dates) {
             headers: {
                 'Accept': 'application/json',
                 'dates': `${dates}`,
-                'emp_id': 22,
-                'dept_id': 3,
-                'team_id': 2
+                'emp_id': emp_id,
+                'dept_id': dept_id,
+                'team_id': team_id
             }
         })
         .then(response => {

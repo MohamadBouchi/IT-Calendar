@@ -9,15 +9,19 @@ Todo:
   ✔ use modules and services in vuex @started(19-03-06 08:09) @done(19-03-06 11:04) @lasted(2h55m46s)
   ✔ uninstall vue-resource @done(19-03-06 13:26)
   ✔ cancel event @done(19-03-06 13:56)
+  ✔ login page @high @done(19-03-07 08:29)
+  ✔ logout only if logged in @done(19-03-07 09:47)
+  ✔ show side bar only if logged in @done(19-03-07 09:47)
+  ✔ cancel event if emp_id = user_id @done(19-03-07 10:34)
+  ✔ map state to login page @done(19-03-07 10:34)
   ☐ get events and dates for the current month
   ☐ next, prev buttons in calendar
-  ☐ login page @high 
   ☐ add dynamic min and max date to datepicker
   ☐ saturday and sundy unselectable
   ☐ show the team partner in details @low 
   ☐ add validation if the user is not from the selected department then he can not add an entry @low 
   ☐ SSO
-  ☐ cancel event if emp_id = user_id
+  ☐ save credential in cookies 
 
 FIXME:
   ✔ add team id when insert into homeoffice @critical @done(19-03-06 12:23)
