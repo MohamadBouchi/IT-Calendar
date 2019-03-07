@@ -1,6 +1,6 @@
 <template lang="pug">
     .right
-        v-btn(color="warning") reset
+        v-btn(color="warning", @click="resetAll") reset
         v-btn(color="success", @click="submit") submit
 </template>
 
@@ -8,7 +8,10 @@
 export default {
     methods: {
         submit() {
-            this.$store.dispatch('homeoffice/submitHomeOffice')
+            this.$store.dispatch('homeoffice/submit')
+        },
+        resetAll() {
+            this.$store.dispatch('homeoffice/resetAll')
         }
     }
 }

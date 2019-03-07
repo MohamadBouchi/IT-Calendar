@@ -4,6 +4,7 @@ import { homeofficeService } from '../_services/HomeofficeService'
 const GET_HOMEOFFICE = 'GET_HOMEOFFICE'
 const SET_SELECTEDDATES = 'SET_SELECTEDDATES'
 const CANCEL_EVENT = 'CANCEL_EVENT'
+const RESET_EVENTS = 'RESET_EVENTS'
 
 const state = {
     selectedDates: [],
@@ -19,6 +20,10 @@ const mutations = {
     },
     [CANCEL_EVENT]: (state, payload) => {
         state.homeofficeDates = state.homeofficeDates.filter(e => e.id!== payload)
+    },
+    [RESET_EVENTS]: (state, payload) => {
+        state.selectedDates = []
+        state.homeofficeDates = state.homeofficeDates.filter(e => Number(e.emp_id)!== Number(payload))
     }
 }
 
@@ -27,7 +32,7 @@ const actions = {
         const payload = await homeofficeService.getHomeOffice(dept_id)
         commit(GET_HOMEOFFICE, payload)
     },
-    submitHomeOffice: async (context) => {
+    submit: async (context) => {
         if(context.state.selectedDates.length!==0){
             const emp_id = context.rootState.auth.id
             const team_id = context.rootState.auth.team_id
@@ -44,6 +49,12 @@ const actions = {
         const payload = await homeofficeService.cancelEvent(id)
         if(payload==='Deleted')
             commit(CANCEL_EVENT, id)
+    },
+    resetAll: async (context) => {
+        const user_id = context.rootState.auth.id
+        const response = await homeofficeService.resetAll(user_id)
+        if(response==='Deleted')
+            context.commit(RESET_EVENTS, user_id)
     }
 }
 

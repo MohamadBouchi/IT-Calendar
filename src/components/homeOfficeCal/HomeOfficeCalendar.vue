@@ -51,7 +51,7 @@
               <v-card-title primary-title>
                 <span v-html="event.details"></span>
               </v-card-title>
-              <v-card-actions v-if="event.emp_id===getUser.id">
+              <v-card-actions v-if="event.emp_id===Number(getUser.id)">
                 <v-spacer></v-spacer>
                 <v-btn
                   flat
