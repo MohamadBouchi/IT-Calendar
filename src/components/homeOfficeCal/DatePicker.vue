@@ -8,6 +8,7 @@
                    :events="teamEvents"
                     event-color="red lighten-1"
                    @input="setSelectedDates"
+                   :allowed-dates="allowedDates"
     ></v-date-picker>
     <!-- <v-date-picker multiple full-width
                    landscape v-model="dates"
@@ -27,7 +28,7 @@ export default {
   data: () => ({
     dates: [],
     arrayEvents: null,
-    pickerDate: null
+    pickerDate: null,
   }),
   created() {
     this.$store.dispatch('teamEvent/getTeamEvents')
@@ -44,7 +45,10 @@ export default {
   methods:{
     setSelectedDates(){
       this.$store.dispatch('homeoffice/setSelectedDates', this.dates)
-    }
+    },
+    allowedDates(val) {
+      return ![0, 6].includes(new Date(val).getDay()) && !this.getTeamEvents.includes(val)
+      }
   },
   // watch: {
   //   pickerDate () {
