@@ -2,6 +2,7 @@ import { authService } from '../_services/AuthService'
 import router from '../_helpers/router';
 
 const LOGIN = 'LOGIN'
+const SIGNOUT = 'SIGNOUT'
 
 const state = {
     uname: localStorage.getItem('user') ? localStorage.getItem('user'):'none',
@@ -16,6 +17,9 @@ const mutations = {
         state.id = payload.id
         state.dept_id = payload.dept_id
         state.team_id = payload.team_id
+    },
+    [SIGNOUT]: (state) => {
+        state.uname= ''
     }
 }
 
@@ -30,6 +34,10 @@ const actions = {
             router.push('/')
             commit(LOGIN, payload[0])
         }
+    },
+    signout: ({commit}) => {
+        router.push('/login')
+        commit(SIGNOUT)
     }
 }
 

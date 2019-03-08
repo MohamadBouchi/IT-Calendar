@@ -7,7 +7,7 @@
                 <span> Calendar</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn flat color='grey' v-if='user.uname!=="none"'>
+            <v-btn flat color='grey' v-if='user.uname!=="none"' @click="signout">
                 <span>Sign Out</span>
                 <v-icon>exit_to_app</v-icon>
             </v-btn>
@@ -23,6 +23,12 @@ import { mapState } from 'vuex';
 export default {
     components: {
         Sidebar
+    },
+    methods:{
+        signout(){
+            localStorage.removeItem('user')
+            this.$store.dispatch('auth/signout')
+        }
     },
     data() {
         return {

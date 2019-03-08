@@ -23,11 +23,11 @@ Todo:
   ✘ add validation if the user is not from the selected department then he can not add an entry @low @cancelled(19-03-07 15:31)
   ✘ SSO @cancelled(19-03-07 15:31)
   ✔ clear datepicker when reset @done(19-03-07 16:10)
-  
-  ☐ get events and dates for the current month
+  ✔ signout @done(19-03-08 07:45)
+  ✘ show the team partner in details @low @cancelled(19-03-08 07:53)
+  ✘ get events and dates for the current month @cancelled(19-03-08 07:54)
+  ✘ add dynamic min and max date to datepicker @cancelled(19-03-08 07:54)
   ☐ next, prev buttons in calendar
-  ☐ add dynamic min and max date to datepicker
-  ☐ show the team partner in details @low 
 
 FIXME:
   ✔ add team id when insert into homeoffice @critical @done(19-03-06 12:23)

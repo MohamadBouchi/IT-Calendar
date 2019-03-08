@@ -9,6 +9,7 @@ export default {
     methods: {
         submit() {
             this.$store.dispatch('homeoffice/submit')
+            this.$emit('resetDatePicker')
         },
         resetAll() {
             this.$emit('resetDatePicker')
