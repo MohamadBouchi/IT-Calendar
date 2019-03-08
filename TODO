@@ -27,6 +27,7 @@ Todo:
   ✘ show the team partner in details @low @cancelled(19-03-08 07:53)
   ✘ get events and dates for the current month @cancelled(19-03-08 07:54)
   ✘ add dynamic min and max date to datepicker @cancelled(19-03-08 07:54)
+  ✔ clear selected dates button @done(19-03-08 08:23)
   ☐ next, prev buttons in calendar
 
 FIXME:
