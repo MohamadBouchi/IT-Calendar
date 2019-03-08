@@ -15,7 +15,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
+import { bus } from '../../main';
 export default {
   data: () => ({
     dates: [],
@@ -42,7 +42,8 @@ export default {
   },
   watch: {
     pickerDate(val) {
-      console.log(val)
+      this.$emit('setStartDate', val)
+      bus.$emit('setStartDate', val)
     }
   }
 }

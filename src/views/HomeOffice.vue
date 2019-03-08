@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     resetDatePicker () {
-      // this.$refs.datePicker.$children[0].$children[0].next()
       this.$refs.datePicker.dates = []
     }
   }

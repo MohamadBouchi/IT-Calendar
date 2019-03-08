@@ -28,7 +28,8 @@ Todo:
   ✘ get events and dates for the current month @cancelled(19-03-08 07:54)
   ✘ add dynamic min and max date to datepicker @cancelled(19-03-08 07:54)
   ✔ clear selected dates button @done(19-03-08 08:23)
-  ☐ next, prev buttons in calendar
+  ✔ next, prev buttons in calendar @done(19-03-08 09:03)
+  ☐ show loading spinner
 
 FIXME:
   ✔ add team id when insert into homeoffice @critical @done(19-03-06 12:23)

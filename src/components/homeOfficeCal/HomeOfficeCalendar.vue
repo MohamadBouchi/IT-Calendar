@@ -70,12 +70,17 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { bus } from '../../main'
+
   export default {
     data: () => ({
       start: '2019-03-01'
     }),
     created(){
         this.$store.dispatch('homeoffice/getHomeOffice', '21')
+        bus.$on('setStartDate', (startDate) => {
+          this.start=startDate+'-01'
+      });
     },
     computed: {
       ...mapGetters('homeoffice',['getHomeofficeDates']),
