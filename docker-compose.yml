@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  it-calendar:
+    build: ./
+    image: mohamedsubhi/it-calendar
+    ports:
+      - 8000:80
+    restart: always
