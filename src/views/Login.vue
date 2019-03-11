@@ -15,7 +15,7 @@
                             v-checkbox(v-if='options.isLoggingIn' v-model='options.shouldStayLoggedIn' light label='Stay logged in?' hide-details)
                             v-btn(v-if='options.isLoggingIn' block type='submit') Sign in
                             v-btn(v-else block type='submit' @click.prevent='options.isLoggingIn = true') Sign up
-                div(v-if='options.isLoggingIn')
+                div(v-if='options.isLoggingIn && 1===0')
                     | Don't have an account?
                     v-btn(light @click='options.isLoggingIn = false') Sign up
 </template>

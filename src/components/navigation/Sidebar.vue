@@ -9,7 +9,7 @@
                     </v-list-tile-content>
                 </v-list-tile>
 
-                <v-list-tile @click='tile=!tile' :key="1" router :to='"/"'>
+                <v-list-tile @click='setActive' :key="1" router :to='"/"'>
                     <v-list-tile-action>
                         <v-icon>cast</v-icon>
                     </v-list-tile-action>
@@ -18,7 +18,7 @@
                     </v-list-tile-content>
                 </v-list-tile>
                 
-                <v-list-tile @click='tile=!tile' :key="2" router :to='"/vacation"'>
+                <v-list-tile @click='setActive' ref="test" :key="2" router :to='"/vacation"'>
                     <v-list-tile-action>
                         <v-icon>local_offer</v-icon>
                     </v-list-tile-action>
@@ -39,6 +39,21 @@ export default {
         return {
             tile:false
         }
+    },
+    methods: {
+        setActive(){
+            if(this.$route.path === '/')
+                this.$emit('sideBarCreated', 'HomeOffice')
+            else
+                this.$emit('sideBarCreated', 'Vacations')
+            this.tile=!this.tile
+        }
+    },
+    created: function(){
+        if(this.$route.path === '/')
+            this.$emit('sideBarCreated', 'HomeOffice')
+        else
+            this.$emit('sideBarCreated', 'Vacations')
     }
 }
 </script>

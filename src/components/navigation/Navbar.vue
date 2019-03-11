@@ -3,8 +3,8 @@
         <v-toolbar flat app dark>
             <v-toolbar-side-icon class="grey--text" @click="drawer=!drawer" v-if='user.uname!=="none"'></v-toolbar-side-icon>
             <v-toolbar-title class="text-uppercase grey--text">
-                <span class="font-weight-light">EDV </span>
-                <span> Calendar</span>
+                <span class="font-weight-light">EDV - </span>
+                <span> {{ title }} Calendar</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn flat color='grey' v-if='user.uname!=="none"' @click="signout">
@@ -12,7 +12,7 @@
                 <v-icon>exit_to_app</v-icon>
             </v-btn>
         </v-toolbar>
-        <Sidebar :drawer='drawer' v-if='user.uname!=="none"'/>
+        <Sidebar :drawer='drawer' v-if='user.uname!=="none"' @sideBarCreated="sideBarCreated"/>
     </nav>
 </template>
 
@@ -21,6 +21,12 @@ import Sidebar from './Sidebar';
 import { mapState } from 'vuex';
 
 export default {
+    data() {
+        return {
+            drawer: false,
+            title: ''
+        }
+    },
     components: {
         Sidebar
     },
@@ -28,15 +34,13 @@ export default {
         signout(){
             localStorage.removeItem('user')
             this.$store.dispatch('auth/signout')
-        }
-    },
-    data() {
-        return {
-            drawer: false
+        },
+        sideBarCreated(selectedOption){
+            this.title = selectedOption
         }
     },
     computed: {
-        ...mapState({user: state => state.auth})        
-    },
+        ...mapState({user: state => state.auth}),   
+    }
 }
 </script>
